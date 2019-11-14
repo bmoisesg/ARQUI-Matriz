@@ -74,6 +74,7 @@ void MyClass::matrizSetText(byte** matriz,String texto) {
 		if (texto[i] == 'x' || texto[i] == 'X')letraX(matriz);
 		if (texto[i] == 'y' || texto[i] == 'Y')letraY(matriz);
 		if (texto[i] == 'z' || texto[i] == 'Z')letraZ(matriz);
+		if (texto[i] == ' ')apuntar=apuntar+6;
 		this->apuntar = apuntar + 6;
 	}
 }

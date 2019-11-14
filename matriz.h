@@ -45,7 +45,7 @@ public:
 	void letraX(byte** matriz);
 	void letraY(byte** matriz);
 	void letraZ(byte** matriz);
-
+	
 
 private:
 
