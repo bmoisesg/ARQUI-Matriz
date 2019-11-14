@@ -3,6 +3,7 @@
 // 
 
 #include "matriz.h"
+#include <math.h>
 MyClass::MyClass()
 {
 }
@@ -16,11 +17,10 @@ byte** MyClass::nuevaMatriz(byte filas, byte columnas) {
 	for (int i = 0; i < filas; i++) {
 		ma[i] = new byte[columnas];
 	}
-	llenarMatriz(ma,filas,columnas);
+	llenarMatriz(ma, filas, columnas);
 
 	return ma;
 }
-
 void MyClass::llenarMatriz(byte** mat, byte f, byte c) {
 	for (byte i = 0; i < f; i++)
 	{
@@ -32,7 +32,6 @@ void MyClass::llenarMatriz(byte** mat, byte f, byte c) {
 	}
 
 };
-
 void MyClass::imprimirMatriz(byte** mat, byte fila, byte col) {
 	for (byte i = 0; i < fila; i++) {
 		for (byte j = 0; j < col; ++j) {
@@ -44,7 +43,7 @@ void MyClass::imprimirMatriz(byte** mat, byte fila, byte col) {
 		Serial.println("");
 	}
 }
-void MyClass::matrizSetText(byte** matriz,String texto) {
+void MyClass::matrizSetText(byte** matriz, String texto) {
 
 	for (size_t i = 0; i < texto.length(); i++)
 	{
@@ -74,12 +73,11 @@ void MyClass::matrizSetText(byte** matriz,String texto) {
 		if (texto[i] == 'x' || texto[i] == 'X')letraX(matriz);
 		if (texto[i] == 'y' || texto[i] == 'Y')letraY(matriz);
 		if (texto[i] == 'z' || texto[i] == 'Z')letraZ(matriz);
-		if (texto[i] == ' ')apuntar=apuntar+6;
+
 		this->apuntar = apuntar + 6;
 	}
 }
-
-void MyClass::letraA(byte** matriz) {
+void MyClass::letraA(byte * *matriz) {
 
 	matriz[1][apuntar] = 1;
 	matriz[2][apuntar] = 1;
@@ -103,7 +101,7 @@ void MyClass::letraA(byte** matriz) {
 	matriz[3][apuntar + 3] = 1;
 
 }
-void MyClass::letraB(byte** matriz) {
+void MyClass::letraB(byte * *matriz) {
 	matriz[1][apuntar] = 1;
 	matriz[1][apuntar + 1] = 1;
 	matriz[1][apuntar + 2] = 1;
@@ -125,7 +123,7 @@ void MyClass::letraB(byte** matriz) {
 
 
 }
-void MyClass::letraC(byte** matriz) {
+void MyClass::letraC(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;
 	matriz[3][apuntar] = 1;
@@ -133,7 +131,7 @@ void MyClass::letraC(byte** matriz) {
 	matriz[5][apuntar] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraD(byte** matriz) {
+void MyClass::letraD(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;				matriz[3][apuntar + 4] = 1;
@@ -141,7 +139,7 @@ void MyClass::letraD(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;
 }
-void MyClass::letraE(byte** matriz) {
+void MyClass::letraE(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;
 	matriz[3][apuntar] = 1;	matriz[3][apuntar + 1] = 1;	matriz[3][apuntar + 2] = 1;	matriz[3][apuntar + 3] = 1;
@@ -149,7 +147,7 @@ void MyClass::letraE(byte** matriz) {
 	matriz[5][apuntar] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraF(byte** matriz) {
+void MyClass::letraF(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;
 	matriz[3][apuntar] = 1;	matriz[3][apuntar + 1] = 1;	matriz[3][apuntar + 2] = 1;	matriz[3][apuntar + 3] = 1;
@@ -157,7 +155,7 @@ void MyClass::letraF(byte** matriz) {
 	matriz[5][apuntar] = 1;
 	matriz[6][apuntar] = 1;
 }
-void MyClass::letraG(byte** matriz) {
+void MyClass::letraG(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;
 	matriz[3][apuntar] = 1;			matriz[3][apuntar + 3] = 1;	matriz[3][apuntar + 4] = 1;
@@ -165,7 +163,7 @@ void MyClass::letraG(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraH(byte** matriz) {
+void MyClass::letraH(byte * *matriz) {
 	matriz[1][apuntar] = 1;				matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;	matriz[3][apuntar + 1] = 1;	matriz[3][apuntar + 2] = 1;	matriz[3][apuntar + 3] = 1;	matriz[3][apuntar + 4] = 1;
@@ -173,7 +171,7 @@ void MyClass::letraH(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;				matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraJ(byte** matriz) {
+void MyClass::letraJ(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar + 3] = 1;
 	matriz[3][apuntar + 3] = 1;
@@ -181,7 +179,7 @@ void MyClass::letraJ(byte** matriz) {
 	matriz[5][apuntar] = 1;			matriz[5][apuntar + 3] = 1;
 	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;
 }
-void MyClass::letraI(byte** matriz) {
+void MyClass::letraI(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar + 2] = 1;
 	matriz[3][apuntar + 2] = 1;
@@ -189,7 +187,7 @@ void MyClass::letraI(byte** matriz) {
 	matriz[5][apuntar + 2] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraK(byte** matriz) {
+void MyClass::letraK(byte * *matriz) {
 	matriz[1][apuntar] = 1;			matriz[1][apuntar + 3] = 1;
 	matriz[2][apuntar] = 1;		matriz[2][apuntar + 2] = 1;
 	matriz[3][apuntar] = 1;	matriz[3][apuntar + 1] = 1;
@@ -197,7 +195,7 @@ void MyClass::letraK(byte** matriz) {
 	matriz[5][apuntar] = 1;			matriz[5][apuntar + 3] = 1;
 	matriz[6][apuntar] = 1;				matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraL(byte** matriz) {
+void MyClass::letraL(byte * *matriz) {
 	matriz[1][apuntar] = 1;
 	matriz[2][apuntar] = 1;
 	matriz[3][apuntar] = 1;
@@ -205,7 +203,7 @@ void MyClass::letraL(byte** matriz) {
 	matriz[5][apuntar] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraM(byte** matriz) {
+void MyClass::letraM(byte * *matriz) {
 	matriz[1][apuntar] = 1;				matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;	matriz[2][apuntar + 1] = 1;		matriz[2][apuntar + 3] = 1;	matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;		matriz[3][apuntar + 2] = 1;		matriz[3][apuntar + 4] = 1;
@@ -213,7 +211,7 @@ void MyClass::letraM(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;				matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraN(byte** matriz) {
+void MyClass::letraN(byte * *matriz) {
 	matriz[1][apuntar] = 1;				matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;	matriz[2][apuntar + 1] = 1;			matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;		matriz[3][apuntar + 2] = 1;		matriz[3][apuntar + 4] = 1;
@@ -221,7 +219,7 @@ void MyClass::letraN(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;				matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraO(byte** matriz) {
+void MyClass::letraO(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;				matriz[3][apuntar + 4] = 1;
@@ -229,7 +227,7 @@ void MyClass::letraO(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraP(byte** matriz) {
+void MyClass::letraP(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;				matriz[3][apuntar + 4] = 1;
@@ -237,7 +235,7 @@ void MyClass::letraP(byte** matriz) {
 	matriz[5][apuntar] = 1;
 	matriz[6][apuntar] = 1;
 }
-void MyClass::letraQ(byte** matriz) {
+void MyClass::letraQ(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;				matriz[3][apuntar + 4] = 1;
@@ -245,7 +243,7 @@ void MyClass::letraQ(byte** matriz) {
 	matriz[5][apuntar] = 1;			matriz[5][apuntar + 3] = 1;	matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraR(byte** matriz) {
+void MyClass::letraR(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;	matriz[3][apuntar + 1] = 1;	matriz[3][apuntar + 2] = 1;	matriz[3][apuntar + 3] = 1;
@@ -253,7 +251,7 @@ void MyClass::letraR(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;				matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraS(byte** matriz) {
+void MyClass::letraS(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;
 	matriz[3][apuntar] = 1;	matriz[3][apuntar + 1] = 1;	matriz[3][apuntar + 2] = 1;	matriz[3][apuntar + 3] = 1;	matriz[3][apuntar + 4] = 1;
@@ -261,7 +259,7 @@ void MyClass::letraS(byte** matriz) {
 	matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraT(byte** matriz) {
+void MyClass::letraT(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar + 2] = 1;
 	matriz[3][apuntar + 2] = 1;
@@ -269,7 +267,7 @@ void MyClass::letraT(byte** matriz) {
 	matriz[5][apuntar + 2] = 1;
 	matriz[6][apuntar + 2] = 1;
 }
-void MyClass::letraU(byte** matriz) {
+void MyClass::letraU(byte * *matriz) {
 	matriz[1][apuntar] = 1;				matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;				matriz[3][apuntar + 4] = 1;
@@ -277,7 +275,7 @@ void MyClass::letraU(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraV(byte** matriz) {
+void MyClass::letraV(byte * *matriz) {
 	matriz[1][apuntar] = 1;				matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;				matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;				matriz[3][apuntar + 4] = 1;
@@ -285,7 +283,7 @@ void MyClass::letraV(byte** matriz) {
 	matriz[5][apuntar + 1] = 1;		matriz[5][apuntar + 3] = 1;
 	matriz[6][apuntar + 2] = 1;
 }
-void MyClass::letraW(byte** matriz) {
+void MyClass::letraW(byte * *matriz) {
 	matriz[1][apuntar] = 1;		matriz[1][apuntar + 2] = 1;		matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar] = 1;		matriz[2][apuntar + 2] = 1;		matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar] = 1;		matriz[3][apuntar + 2] = 1;		matriz[3][apuntar + 4] = 1;
@@ -293,7 +291,7 @@ void MyClass::letraW(byte** matriz) {
 	matriz[5][apuntar] = 1;		matriz[5][apuntar + 2] = 1;		matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar + 1] = 1;		matriz[6][apuntar + 3] = 1;
 }
-void MyClass::letraX(byte** matriz) {
+void MyClass::letraX(byte * *matriz) {
 	matriz[1][apuntar] = 1;				matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar + 1] = 1;		matriz[2][apuntar + 3] = 1;
 	matriz[3][apuntar + 2] = 1;
@@ -301,7 +299,7 @@ void MyClass::letraX(byte** matriz) {
 	matriz[5][apuntar] = 1;				matriz[5][apuntar + 4] = 1;
 	matriz[6][apuntar] = 1;				matriz[6][apuntar + 4] = 1;
 }
-void MyClass::letraY(byte** matriz) {
+void MyClass::letraY(byte * *matriz) {
 	matriz[1][apuntar] = 1;				matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar + 1] = 1;		matriz[2][apuntar + 3] = 1;
 	matriz[3][apuntar + 2] = 1;
@@ -309,11 +307,56 @@ void MyClass::letraY(byte** matriz) {
 	matriz[5][apuntar + 2] = 1;
 	matriz[6][apuntar + 2] = 1;
 }
-void MyClass::letraZ(byte** matriz) {
+void MyClass::letraZ(byte * *matriz) {
 	matriz[1][apuntar] = 1;	matriz[1][apuntar + 1] = 1;	matriz[1][apuntar + 2] = 1;	matriz[1][apuntar + 3] = 1;	matriz[1][apuntar + 4] = 1;
 	matriz[2][apuntar + 4] = 1;
 	matriz[3][apuntar + 3] = 1;
 	matriz[4][apuntar + 2] = 1;
 	matriz[5][apuntar + 1] = 1;
 	matriz[6][apuntar] = 1;	matriz[6][apuntar + 1] = 1;	matriz[6][apuntar + 2] = 1;	matriz[6][apuntar + 3] = 1;	matriz[6][apuntar + 4] = 1;
+}
+
+int MyClass::toDecimal(byte * *matriz, int tam) {
+
+	double numero = 0;
+	int n = 0;
+	for (size_t i = 0; i < tam - 8+1; i++)
+	{
+
+		
+		
+		n = 0;
+		for (size_t y = 0; y < 8; y++)
+		{
+
+			int tmp = 7;
+			for (size_t x = 0; x < 8; x++)
+			{
+				
+				if (matriz[y][apuntar+x] == 1)
+				{
+					numero = numero + pow(2, tmp);
+				}
+				tmp--;
+
+			}
+			int n = (int)round(numero);
+			Serial.print(n);
+			Serial.print(",");
+			//Serial.print("-");
+			//Serial.println(numero);
+			numero = 0;
+
+		}
+		Serial.println();
+		apuntar++;
+	}
+
+
+	Serial.println();
+	Serial.println();
+
+
+	return n;
+
 }
